@@ -8,9 +8,10 @@ namespace NoColonialRelations
 	[HarmonyPatch(typeof(PawnGenerationRequest), "ColonistRelationChanceFactor", MethodType.Getter)]
 	public static class ColonistRelationChanceFactor_Patch
     {
-		public static void Prefix(ref float __result)
+		public static bool Prefix(ref float __result)
 		{
-			__result = 0f;
+            __result = 0f;
+			return false;
 		}
 	}
 }
